@@ -94,6 +94,8 @@ let s:gb.dark2       = ['#504945', 239]     " 80-73-69
 let s:gb.dark3       = ['#665c54', 241]     " 102-92-84
 let s:gb.dark4       = ['#7c6f64', 243]     " 124-111-100
 let s:gb.dark4_256   = ['#7c6f64', 243]     " 124-111-100
+let s:gb.dark5       = ['#262420', 237]
+let s:gb.dark6       = ['#201e1c', 237]
 
 let s:gb.gray_245    = ['#928374', 245]     " 146-131-116
 let s:gb.gray_244    = ['#928374', 244]     " 146-131-116
@@ -106,6 +108,8 @@ let s:gb.light2      = ['#d5c4a1', 250]     " 213-196-161
 let s:gb.light3      = ['#bdae93', 248]     " 189-174-147
 let s:gb.light4      = ['#a89984', 246]     " 168-153-132
 let s:gb.light4_256  = ['#a89984', 246]     " 168-153-132
+let s:gb.light5      = ['#ebdbb2', 223]
+let s:gb.light6      = ['#ebdbb2', 223]
 
 let s:gb.bright_red     = ['#fb4934', 167]     " 251-73-52
 let s:gb.bright_green   = ['#b8bb26', 142]     " 184-187-38
@@ -179,6 +183,8 @@ if s:is_dark
   let s:bg2  = s:gb.dark2
   let s:bg3  = s:gb.dark3
   let s:bg4  = s:gb.dark4
+  let s:bg5  = s:gb.dark5
+  let s:bg6  = s:gb.dark6
 
   let s:gray = s:gb.gray_245
 
@@ -187,6 +193,8 @@ if s:is_dark
   let s:fg2 = s:gb.light2
   let s:fg3 = s:gb.light3
   let s:fg4 = s:gb.light4
+  let s:fg5 = s:gb.light5
+  let s:fg6 = s:gb.light6
 
   let s:fg4_256 = s:gb.light4_256
 
@@ -209,6 +217,8 @@ else
   let s:bg2  = s:gb.light2
   let s:bg3  = s:gb.light3
   let s:bg4  = s:gb.light4
+  let s:bg5  = s:gb.light5
+  let s:bg6  = s:gb.light6
 
   let s:gray = s:gb.gray_244
 
@@ -217,6 +227,8 @@ else
   let s:fg2 = s:gb.dark2
   let s:fg3 = s:gb.dark3
   let s:fg4 = s:gb.dark4
+  let s:fg5 = s:gb.dark5
+  let s:fg6 = s:gb.dark6
 
   let s:fg4_256 = s:gb.dark4_256
 
@@ -249,6 +261,8 @@ let s:gb.bg1 = s:bg1
 let s:gb.bg2 = s:bg2
 let s:gb.bg3 = s:bg3
 let s:gb.bg4 = s:bg4
+let s:gb.bg5 = s:bg5
+let s:gb.bg6 = s:bg6
 
 let s:gb.gray = s:gray
 
@@ -257,6 +271,8 @@ let s:gb.fg1 = s:fg1
 let s:gb.fg2 = s:fg2
 let s:gb.fg3 = s:fg3
 let s:gb.fg4 = s:fg4
+let s:gb.fg5 = s:fg5
+let s:gb.fg6 = s:fg6
 
 let s:gb.fg4_256 = s:fg4_256
 
@@ -310,7 +326,7 @@ if exists('g:gruvbox_number_column')
   let s:number_column = get(s:gb, g:gruvbox_number_column)
 endif
 
-let s:sign_column = s:bg1
+let s:sign_column = s:bg6
 
 if exists('g:gitgutter_override_sign_column_highlight') &&
       \ g:gitgutter_override_sign_column_highlight == 1
@@ -426,12 +442,16 @@ call s:HL('GruvboxFg1', s:fg1)
 call s:HL('GruvboxFg2', s:fg2)
 call s:HL('GruvboxFg3', s:fg3)
 call s:HL('GruvboxFg4', s:fg4)
+call s:HL('GruvboxFg5', s:fg5)
+call s:HL('GruvboxFg6', s:fg6)
 call s:HL('GruvboxGray', s:gray)
 call s:HL('GruvboxBg0', s:bg0)
 call s:HL('GruvboxBg1', s:bg1)
 call s:HL('GruvboxBg2', s:bg2)
 call s:HL('GruvboxBg3', s:bg3)
 call s:HL('GruvboxBg4', s:bg4)
+call s:HL('GruvboxBg5', s:bg5)
+call s:HL('GruvboxBg6', s:bg6)
 
 call s:HL('GruvboxRed', s:red)
 call s:HL('GruvboxRedBold', s:red, s:none, s:bold)
@@ -475,7 +495,7 @@ endif
 
 if version >= 700
   " Screen line that the cursor is
-  call s:HL('CursorLine',   s:none, s:bg1)
+  call s:HL('CursorLine',   s:none, s:bg5)
   " Screen column that the cursor is
   hi! link CursorColumn CursorLine
 
@@ -498,7 +518,7 @@ if version >= 703
   call s:HL('Conceal', s:blue, s:none)
 
   " Line number of CursorLine
-  call s:HL('CursorLineNr', s:yellow, s:bg1)
+  call s:HL('CursorLineNr', s:yellow, s:bg6)
 endif
 
 hi! link NonText GruvboxBg2
